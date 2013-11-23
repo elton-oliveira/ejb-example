@@ -52,5 +52,23 @@
 		<jar destfile="${build.dir}/${jar.name}" basedir="${class.dir}" />
 	</target>
 
+	<!-- ================================= 
+       target: deploy              
+      ================================= -->
+	<target name="deploy" depends="package">
+		<copy todir="${jboss.home}/standalone/deployments/">
+			<fileset dir="${build.dir}/">
+				<include name="${jar.name}"/>
+			</fileset>
+		</copy>
+	</target>
+	
+	<!-- ================================= 
+       target: deploy              
+      ================================= -->
+    <target name="run" depends="deploy">
+    	<exec executable="${jboss.home}/bin/standalone.bat"/>
+    </target> 
+
 
 </project>
