@@ -1,0 +1,25 @@
+<ivy-module version="2.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd">
+
+	<info organisation="br.com.fluentcode" module="ejb-example" />
+
+	<!-- Creates settings (any name) for when in build.xml retrieve the dependencies is 
+		possible to separate them by folder -->
+	<configurations>
+		<conf name="provided" />
+	</configurations>
+
+	<!-- The conf attribute associates dependencies to a configuration previously 
+		declared, in other words, classifies dependencies. 
+		We also want Ivy only load the JAR's (dependency and transitive dependencies) and 
+		no dependency optional, not javadoc or source code, so add default configuration 
+		for each dependency. -->
+	<dependencies>
+	<!-- ?????????????????????? TODO Precisar trocar a dependencia não é um client
+	 deve ser algo relacionado ao jee ???????????????????????????????????????????? -->
+		<dependency org="org.jboss.as" name="jboss-as-ejb-client-bom" rev="7.2.0.Final" conf="provided->default"/>
+		<dependency org="org.jboss.as" name="jboss-as-jms-client-bom" rev="7.2.0.Final" conf="provided->default"/>
+	</dependencies>
+
+</ivy-module>

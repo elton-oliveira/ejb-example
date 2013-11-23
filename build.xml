@@ -1,0 +1,56 @@
+<project name="EJB-Example" xmlns:ivy="antlib:org.apache.ivy.ant" default="package">
+
+	<path id="ivy.lib.path">
+		<pathelement location="ivy-2.3.0.jar" />
+	</path>
+	<taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant" classpathref="ivy.lib.path" />
+
+	<property file="build.properties" />
+
+	<path id="path.compile.id">
+		<fileset dir="${lib.provided.dir}">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+
+
+	<!-- ================================= 
+       target: clean              
+      ================================= -->
+	<target name="clean">
+		<delete dir="${lib.provided.dir}" />
+		<mkdir dir="${lib.provided.dir}" />
+		<delete dir="${build.dir}" />
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${class.dir}" />
+	</target>
+
+
+	<!-- ================================= 
+       target: resolve              
+      ================================= -->
+	<target name="resolve" depends="clean">
+		<ivy:retrieve conf="provided" pattern="${lib.provided.dir}/[artifact]-[revision].[ext]"/>
+	</target>
+
+
+	<!-- ================================= 
+       target: compile              
+      ================================= -->
+	<target name="compile" depends="resolve">
+		<javac srcdir="src" destdir="${class.dir}">
+			<classpath refid="path.compile.id" />
+		</javac>
+	</target>
+
+
+	<!-- ================================= 
+       target: package              
+      ================================= -->
+	<target name="package" depends="compile" >
+		<!-- The basedir attribute indicates the path where the files are to be included in JAR. -->
+		<jar destfile="${build.dir}/${jar.name}" basedir="${class.dir}" />
+	</target>
+
+
+</project>
