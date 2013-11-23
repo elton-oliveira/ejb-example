@@ -52,6 +52,7 @@
 		<jar destfile="${build.dir}/${jar.name}" basedir="${class.dir}" />
 	</target>
 
+
 	<!-- ================================= 
        target: deploy              
       ================================= -->
@@ -62,13 +63,25 @@
 			</fileset>
 		</copy>
 	</target>
-	
+
+
 	<!-- ================================= 
-       target: deploy              
+       target: server run              
       ================================= -->
-    <target name="run" depends="deploy">
-    	<exec executable="${jboss.home}/bin/standalone.bat"/>
-    </target> 
+	<target name="server.run" depends="deploy">
+		<exec executable="${jboss.home}/bin/standalone.bat"/>
+	</target>
+
+
+	<!-- ================================= 
+       target: server shutdown              
+      ================================= -->
+	<target name="server.shutdown">
+		<exec executable="${jboss.home}/bin/jboss-cli.bat">
+			<arg value="--connect" />
+			<arg value="--command=:shutdown" />
+		</exec>
+	</target>
 
 
 </project>
