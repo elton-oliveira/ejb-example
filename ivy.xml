@@ -16,10 +16,7 @@
 		no dependency optional, not javadoc or source code, so add default configuration 
 		for each dependency. -->
 	<dependencies>
-	<!-- ?????????????????????? TODO Precisar trocar a dependencia não é um client
-	 deve ser algo relacionado ao jee ???????????????????????????????????????????? -->
-		<dependency org="org.jboss.as" name="jboss-as-ejb-client-bom" rev="7.2.0.Final" conf="provided->default"/>
-		<dependency org="org.jboss.as" name="jboss-as-jms-client-bom" rev="7.2.0.Final" conf="provided->default"/>
+		<dependency org="org.jboss.spec.javax.ejb" name="jboss-ejb-api_3.1_spec" rev="1.0.2.Final" conf="provided->default"/>
 	</dependencies>
 
 </ivy-module>
