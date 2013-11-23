@@ -4,6 +4,11 @@ import javax.ejb.Stateless;
 
 import br.com.fluentcode.ejb.remote.CalculatorRemote;
 
+/**
+ * 
+ * Stateless Session Bean
+ *
+ */
 @Stateless
 public class CalculatorBean implements CalculatorRemote{
 
