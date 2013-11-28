@@ -41,6 +41,11 @@
 		<javac srcdir="src" destdir="${class.dir}">
 			<classpath refid="path.compile.id" />
 		</javac>
+		<copy todir="${class.dir}">
+			<fileset dir="src">
+				<include name="META-INF/*" />
+			</fileset>
+		</copy>
 	</target>
 
 
