@@ -16,7 +16,7 @@ import br.com.fluentcode.ejb.orm.MessageHistory;
 		@ActivationConfigProperty(propertyName = "destination", propertyValue = "FluentCodeQueue")})
 public class MessageHistoryMDB implements MessageListener{
 	
-	@PersistenceContext
+	@PersistenceContext(unitName="fluentcode")
 	private EntityManager em;
 
 	@Override
