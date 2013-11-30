@@ -20,7 +20,7 @@ Step 4) Open your "JBoss/standalone/configuration/standalone-full.xml" file and 
 
 <driver name="OracleJDBCDriver" module="fluentcode.oracle-driver"/>
 
-3) Through the JBoss Web Interface creates the dataSource with JNDI java:jboss/datasources/OracleDS
+3) Through the JBoss Web Interface creates the dataSource with JNDI name java:jboss/datasources/OracleDS
 
 4) To generate the jar project, deploy and run server, in terminal, run:
 
