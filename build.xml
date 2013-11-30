@@ -78,6 +78,17 @@
 			<arg value="--server-config=standalone-full.xml" />
 		</exec>
 	</target>
+	
+	
+	<!-- ================================= 
+       target: server reload              
+      ================================= -->
+	<target name="server.reload" depends="deploy">
+		<exec executable="${jboss.home}/bin/jboss-cli.bat">
+			<arg value="--connect" />
+			<arg value="--command=:reload" />
+		</exec>
+	</target>
 
 
 	<!-- ================================= 
