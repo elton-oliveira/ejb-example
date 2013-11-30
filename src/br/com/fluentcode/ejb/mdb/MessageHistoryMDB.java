@@ -1,14 +1,14 @@
 package br.com.fluentcode.ejb.mdb;
 
 import javax.ejb.ActivationConfigProperty;
+import javax.ejb.EJB;
 import javax.ejb.MessageDriven;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
 import javax.jms.TextMessage;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
+import br.com.fluentcode.ejb.dao.MessageHistoryDAOLocal;
 import br.com.fluentcode.ejb.orm.MessageHistory;
 
 @MessageDriven(activationConfig={
@@ -16,8 +16,8 @@ import br.com.fluentcode.ejb.orm.MessageHistory;
 		@ActivationConfigProperty(propertyName = "destination", propertyValue = "FluentCodeQueue")})
 public class MessageHistoryMDB implements MessageListener{
 	
-	@PersistenceContext(unitName="fluentcode")
-	private EntityManager em;
+	@EJB
+	private MessageHistoryDAOLocal dao;
 
 	@Override
 	public void onMessage(Message message) {
@@ -25,7 +25,7 @@ public class MessageHistoryMDB implements MessageListener{
 		try {
 			MessageHistory history = new MessageHistory();
 			history.setDescription(textMessage.getText());
-			em.persist(history);
+			dao.persist(history);
 			System.out.println("--> "+textMessage.getText()+" <--");
 		} catch (JMSException e) {
 			e.printStackTrace();
