@@ -21,7 +21,7 @@ public class TaskSchedulerBean implements TaskSchedulerRemote{
 	@Override
 	public void scheduleTask(Date date, Serializable info){
 		this.timerService.createTimer(date, info);
-		System.out.println("--> The task was scheduled <--");
+		System.out.println("--> The task '"+info+"' was scheduled <--");
 	}
 
 	@Timeout
@@ -32,9 +32,10 @@ public class TaskSchedulerBean implements TaskSchedulerRemote{
 	@Override
 	public void cancelTask(){
 		for(Timer timer : this.timerService.getTimers()){
+			Serializable info = timer.getInfo();
 			timer.cancel();
+			System.out.println("--> The task '"+info+"' was canceled <--");
 		}
-		System.out.println("--> The task was canceled <--");
 	}
 	
 }
