@@ -1,7 +1,9 @@
 package br.com.fluentcode.ejb.remote.impl;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.ejb.Stateless;
@@ -30,12 +32,14 @@ public class TaskSchedulerBean implements TaskSchedulerRemote{
 	}
 	
 	@Override
-	public void cancelTask(){
+	public List<String> cancelTask(){
+		List<String> messages = new ArrayList<>();
 		for(Timer timer : this.timerService.getTimers()){
 			Serializable info = timer.getInfo();
 			timer.cancel();
-			System.out.println("--> The task '"+info+"' was canceled <--");
+			messages.add("Task '"+info+"' was canceled");
 		}
+		return messages;
 	}
 	
 }
