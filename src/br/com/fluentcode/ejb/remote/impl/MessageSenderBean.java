@@ -15,10 +15,11 @@ import br.com.fluentcode.ejb.remote.MessageSenderRemote;
 @Stateless
 public class MessageSenderBean implements MessageSenderRemote {
 	
-	@Resource(mappedName = "java:/ConnectionFactory")
+	/*The lookup() attribute, new in JEE6, is the spec-defined mechanism pointing to a resource in global JNDI*/
+	@Resource(lookup = "java:/ConnectionFactory")
 	private ConnectionFactory connectionFactory;
 	
-	@Resource(mappedName = "java:jboss/exported/FluentCodeQueue")
+	@Resource(lookup = "java:jboss/exported/FluentCodeQueue")
 	private Destination destination;
 
 	@Override
