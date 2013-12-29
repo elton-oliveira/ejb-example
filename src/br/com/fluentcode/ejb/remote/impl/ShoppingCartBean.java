@@ -3,6 +3,7 @@ package br.com.fluentcode.ejb.remote.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.Resource;
 import javax.ejb.Remove;
 import javax.ejb.Stateful;
 
@@ -15,6 +16,9 @@ import br.com.fluentcode.ejb.remote.ShoppingCartRemote;
  */
 @Stateful
 public class ShoppingCartBean implements ShoppingCartRemote {
+	
+	@Resource(name = "finishShoppingMessage")
+	private String message;
 	
 	private List<String> items = new ArrayList<String>();
 
@@ -33,7 +37,7 @@ public class ShoppingCartBean implements ShoppingCartRemote {
 	@Remove
 	@Override
 	public void finishShopping() {
-		System.out.println("Order finalized!");
+		System.out.println(message);
 	}
 
 }
