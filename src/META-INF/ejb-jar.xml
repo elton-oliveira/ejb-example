@@ -7,7 +7,7 @@
 	<enterprise-beans>
 		<session>
 			<ejb-name>ShoppingCartBean</ejb-name>
-			<!-- defines an entry in the JNDI ENC from ShoppingCartBean-->
+			<!-- Add an entry in the JNDI ENC from ShoppingCartBean-->
 			<env-entry>
 				<env-entry-name>finishShoppingMessage</env-entry-name>
 				<env-entry-type>java.lang.String</env-entry-type>
