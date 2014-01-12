@@ -29,7 +29,13 @@ Step 4) Open your "JBoss/standalone/configuration/standalone-full.xml" file and 
 
 Through the JBoss Web Interface creates the dataSource with JNDI name java:jboss/datasources/OracleDS
 
-## 4) Run server ##
+## 4) Create a destination ##
+
+To create a destination (queue or topic) in JBoss 7 you would have to make sure you give “java:jboss/exported/” before giving the JNDI name of the destination.
+
+Create a queue named FluentCodeQueue.
+
+## 5) Run server ##
 
 To generate the jar project, deploy and run server, in terminal, run:
 
