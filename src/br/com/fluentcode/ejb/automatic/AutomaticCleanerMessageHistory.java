@@ -1,4 +1,4 @@
-package br.com.fluentcode.ejb.autotimer;
+package br.com.fluentcode.ejb.automatic;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;

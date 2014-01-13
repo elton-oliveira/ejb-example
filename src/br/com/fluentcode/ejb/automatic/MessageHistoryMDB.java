@@ -1,4 +1,4 @@
-package br.com.fluentcode.ejb.mdb;
+package br.com.fluentcode.ejb.automatic;
 
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.EJB;
