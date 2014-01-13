@@ -8,7 +8,7 @@ import javax.jms.Message;
 import javax.jms.MessageListener;
 import javax.jms.TextMessage;
 
-import br.com.fluentcode.ejb.dao.MessageHistoryDAOLocal;
+import br.com.fluentcode.ejb.dao.MessageHistoryDAOBean;
 import br.com.fluentcode.ejb.orm.MessageHistory;
 
 @MessageDriven(activationConfig={
@@ -17,7 +17,7 @@ import br.com.fluentcode.ejb.orm.MessageHistory;
 public class MessageHistoryMDB implements MessageListener{
 	
 	@EJB
-	private MessageHistoryDAOLocal dao;
+	private MessageHistoryDAOBean dao;
 
 	@Override
 	public void onMessage(Message message) {

@@ -8,7 +8,7 @@ import javax.persistence.Query;
 import br.com.fluentcode.ejb.orm.MessageHistory;
 
 @Stateless
-public class MessageHistoryDAOBean implements MessageHistoryDAOLocal{
+public class MessageHistoryDAOBean{
 	
 	@PersistenceContext(unitName="fluentcode")
 	private EntityManager em;

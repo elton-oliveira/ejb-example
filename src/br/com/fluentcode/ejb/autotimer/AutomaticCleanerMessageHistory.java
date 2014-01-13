@@ -6,14 +6,14 @@ import javax.ejb.Schedule;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
 
-import br.com.fluentcode.ejb.dao.MessageHistoryDAOLocal;
+import br.com.fluentcode.ejb.dao.MessageHistoryDAOBean;
 
 @Singleton
 @Startup
 public class AutomaticCleanerMessageHistory {
 	
 	@EJB
-	private MessageHistoryDAOLocal messageHistoryDAO;
+	private MessageHistoryDAOBean messageHistoryDAO;
 	
 	@PostConstruct
 	public void postConstruct(){
