@@ -8,5 +8,7 @@ import br.com.fluentcode.ejb.orm.MessageHistory;
 public interface MessageHistoryDAOLocal {
 	
 	void persist(MessageHistory messageHistory);
+	
+	int deleteAll();
 
 }
