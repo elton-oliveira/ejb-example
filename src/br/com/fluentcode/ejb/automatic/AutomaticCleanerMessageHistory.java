@@ -21,7 +21,7 @@ public class AutomaticCleanerMessageHistory {
 	}
 	
 	//To test, change to run every 3 seconds: @Schedule(second =" */3 ", minute ="*", hour ="*")
-	@Schedule(dayOfWeek="Mon,Wed", hour="8", minute="30")
+	@Schedule(dayOfWeek="Mon,Wed", hour="8", minute="30", persistent=false)
 	public void clean(){
 		int number = this.messageHistoryDAO.deleteAll();
 		System.out.println(number+" deleted entities");
