@@ -1,6 +1,6 @@
 ## 1) Set the value of jboss.home ##
 
-The first thing that must be done is set the value of jboss.home in build.properties file to point to your jboss 7
+The first thing that must be done is set the value of jboss.home in build.properties file to point to your jboss 7.1.1
 
 ## 2) Installing a JDBC driver as a module ##
 
