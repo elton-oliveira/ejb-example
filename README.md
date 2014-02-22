@@ -31,7 +31,7 @@ Through the JBoss Web Interface creates the dataSource with JNDI name java:jboss
 
 ## 4) Create a destination ##
 
-To create a destination (queue or topic) in JBoss 7 you would have to make sure you give “java:jboss/exported/” before giving the JNDI name of the destination.
+To create a destination (queue or topic) in JBoss 7.1.1 you would have to make sure you give “java:jboss/exported/” before giving the JNDI name of the destination.
 
 Create a queue named FluentCodeQueue.
 
