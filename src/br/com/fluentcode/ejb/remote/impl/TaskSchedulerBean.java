@@ -33,7 +33,7 @@ public class TaskSchedulerBean implements TaskSchedulerRemote{
 	
 	@Override
 	public List<String> cancelTask(){
-		List<String> messages = new ArrayList<>();
+		List<String> messages = new ArrayList<String>();
 		for(Timer timer : this.timerService.getTimers()){
 			Serializable info = timer.getInfo();
 			timer.cancel();
