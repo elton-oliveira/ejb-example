@@ -27,8 +27,8 @@ public class TaskSchedulerBean implements TaskSchedulerRemote{
 	}
 
 	@Timeout
-	public void ejbTimeout(Timer timer) {
-		System.out.println("--> "+timer.getInfo()+" <--");
+	private void ejbTimeout(Timer timer) {
+		System.out.println("--> The timer has expired: "+timer.getInfo()+" <--");
 	}
 	
 	@Override

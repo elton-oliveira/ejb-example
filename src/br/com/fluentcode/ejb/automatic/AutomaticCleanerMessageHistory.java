@@ -19,7 +19,7 @@ public class AutomaticCleanerMessageHistory {
 	private MessageHistoryDAOBean messageHistoryDAO;
 	
 	@PostConstruct
-	public void postConstruct(){
+	private void postConstruct(){
 		System.out.println("=============== Singleton created on application startup ===============");
 	}
 	
@@ -30,7 +30,7 @@ public class AutomaticCleanerMessageHistory {
 	 * container will call the @Timeout method when the server is restarted.
 	 */
 	@Schedule(dayOfWeek="Mon,Wed", hour="8", minute="30", persistent=false)
-	public void clean(){
+	private void clean(){
 		int number = this.messageHistoryDAO.deleteAll();
 		System.out.println(number+" deleted entities");
 	}
