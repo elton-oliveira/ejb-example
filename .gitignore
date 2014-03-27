@@ -1,8 +1,8 @@
-lib-provided/
-target/
+lib-provided
+target
 
 # Eclipse files and folder #
 .classpath
 .project
 .settings
-build/
+/build
