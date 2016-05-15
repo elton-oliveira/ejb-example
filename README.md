@@ -23,7 +23,9 @@ Step 3) Create a file "module.xml" inside the directory you created as following
 
 Step 4) Open your "JBoss/standalone/configuration/standalone-full.xml" file and find drivers tag. Then add the driver declaration tag refering to your module as following:
 
-    <driver name="OracleJDBCDriver" module="fluentcode.oracle-driver"/>
+    <driver name="OracleJDBCDriver" module="fluentcode.oracle-driver">
+        <driver-class>oracle.jdbc.OracleDriver</driver-class>
+    </driver>
 
 ## 3) Create dataSource ##
 
